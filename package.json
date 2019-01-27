@@ -1,0 +1,20 @@
+{
+  "name": "n-env-config",
+  "version": "0.0.1",
+  "description": "NodeJS environment variables configuration",
+  "main": "dist/index.js",
+  "repository": "git@github.com:januszhou/node-env-config.git",
+  "author": "januszhou <janus.zhou1005@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "@types/ramda": "^0.25.47",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
