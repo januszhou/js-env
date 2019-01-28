@@ -30,9 +30,16 @@ const ConfigGet = (property: string): any => {
   const optionalLoadFile = loadFile(true);
   const requiredLoadFile = loadFile(false);
   if(isEmpty(config)){
-    const envFilePath = `./${options.folderName}/${process.env.NODE_ENV}.js`;
+    let localConfig;
+    const envFilePath = `./${options.folderName}/${process.env.NODE_ENV}`;
     const envConfig = requiredLoadFile(envFilePath);
-    const localConfig = optionalLoadFile(`./${options.localName}`);
+
+    // if NODE_ENV is undefined, local config is required
+    if(!process.env.NODE_ENV){
+      localConfig = requiredLoadFile(`./${options.localName}`);
+    } else {
+      localConfig = optionalLoadFile(`./${options.localName}`);
+    }
     // const exampleConfig = optionalLoadFile(`./${options.localName}`);
     config = mergeDeepLeft(envConfig, localConfig);
   }
