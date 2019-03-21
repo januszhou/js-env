@@ -11,6 +11,22 @@ npm install --save n-env-config
 
 ### Usage
 
+```javascript
+// file config.js
+import { loadConfig } from 'n-env-config';
+export const config = loadConfig({
+  folderName: "config",
+  localName: ".env.local.js",
+  setEnv: true
+});
+
+// anywhere else, import config.js
+import { config } from '../path/to/config';
+const someConfig = config("path.to.config");
+
+// when setEnv: true
+const someConfig = process.env.PATH_TO_CONFIG;
+```
 
 ### Config
 

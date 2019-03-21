@@ -1,6 +1,6 @@
 {
   "name": "n-env-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "NodeJS environment variables configuration",
   "main": "dist/index.js",
   "repository": "git@github.com:januszhou/node-env-config.git",
