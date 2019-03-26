@@ -7,14 +7,41 @@
   "author": "januszhou <janus.zhou1005@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc",
+    "test": "jest --verbose"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.11",
     "@types/node": "^10.12.18",
     "@types/ramda": "^0.25.47",
+    "husky": "^1.3.1",
+    "jest": "^24.5.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
     "typescript": "^3.2.4"
   },
   "dependencies": {
     "ramda": "^0.26.1"
+  },
+  "jest": {
+    "testRegex": "/__tests__/.*\\.test\\.(ts)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "preset": "ts-jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
