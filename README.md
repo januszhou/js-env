@@ -12,29 +12,41 @@ npm install --save n-env-config
 ```
 
 ### Usage
+```bash
+// your folder structure
 
-#### Fold structure
+├── src
+│   ├── config
+│   │   ├── local.env.ts
+│   │   ├── qa.ts
+│   │   ├── production.ts
+│   ├── config.js
+│   ├── database.js
+└── .gitignore
+```
 
 ```javascript
-// file config.js
+// config.js
 import loadConfig from 'n-env-config';
+import path from 'path'
 export const getConfig = loadConfig({
-  folderName: "config",
-  localName: ".env.local.js",
+  folderPath: path.join(__dirname, "./config"),
+  localName: "local.env",
+  env: process.env.NODE_ENV
   setEnv: true
 });
 
-// anywhere else, import config.js
-import { getConfig } from '../path/to/config';
+// database.js
+import { getConfig } from './config';
 const someConfig = getConfig("path.to.config");
-
 // when setEnv: true
 // all env config use uppercase
 const someConfig = process.env.PATH_TO_CONFIG;
-
 // array env access
 const arrayConfig = process.env.PATH_TO_CONFIG_0_KEY;
 ```
+
+You should add `local.env.js[ts]` into `.gitignore`.
 
 ### Road map
 - Separate configuration support from `package.json`
