@@ -1,7 +1,7 @@
 {
-  "name": "n-env-config",
+  "name": "js-env",
   "version": "0.0.2",
-  "description": "NodeJS environment variables configuration",
+  "description": "JS env variables",
   "main": "dist/index.js",
   "repository": "git@github.com:januszhou/node-env-config.git",
   "author": "januszhou <janus.zhou1005@gmail.com>",
